@@ -1,0 +1,36 @@
+{
+  "name": "<%= slugname %>",
+  "version": "0.0.0",
+  "description": "<%= props.description %>",<% if (props.homepage) { %>
+  "homepage": "<%= props.homepage %>",<% } %>
+  "author": {
+    "name": "<%= props.authorName %>",
+    "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %>,
+    "url": "<%= props.authorUrl %>"<% } %>
+  },
+  "repository": "<%= repoUrl %>",
+  "license": "<%= props.license %>",
+  "files": [
+    "index.js"<% if (props.cli) { %>,
+    "cli.js"<% } %>
+  ],
+  "keywords": [
+    "<%= slugname %>"<% for (var i = 0; i < keywords.length; i++) { %>,
+    "<%= keywords[i] %>"<% } %>
+  ],
+  "dependencies": {<% if (props.cli) { %>
+    "meow": "^3.1.0"
+  <% } %>},
+  "devDependencies": {<% if (props.browser) { %>
+    "browserify": "^9.0.3",<% } %>
+    "mocha": "*",
+    "jshint-stylish": "^1.0.1"
+  },
+  "scripts": {
+    "test": "mocha"<% if (props.browser) { %>,
+    "browser": "browserify index.js > browser.js"<% } %>
+  }<% if (props.cli) { %>,
+  "bin": {
+    "<%= slugname %>": "cli.js"
+  }<% } %>
+}

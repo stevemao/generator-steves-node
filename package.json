@@ -1,0 +1,36 @@
+{
+  "name": "generator-steves-node",
+  "version": "0.0.0",
+  "description": "Create a Node.js module",
+  "keywords": [
+    "yeoman-generator",
+    "steve",
+    "scaffold",
+    "node",
+    "module",
+    "cli"
+  ],
+  "author": "Yeoman team",
+  "main": "app",
+  "repository": "stevemao/generator-steves-node",
+  "scripts": {
+    "test": "mocha --timeout 50000"
+  },
+  "dependencies": {
+    "npm-name": "^1.0.2",
+    "yeoman-generator": "^0.18.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "mocha": "*",
+    "shelljs": "^0.3.0"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.2.10"
+  },
+  "files": [
+    "app"
+  ],
+  "license": "MIT"
+}
