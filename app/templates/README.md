@@ -1,4 +1,4 @@
-# <%= props.slugname %> [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# <%= props.slugname %> [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coverall-image]][coverall-url]
 
 > <%= props.description %>
 
@@ -40,3 +40,5 @@ $ npm run browser
 [travis-url]: https://travis-ci.org/<%= props.githubUsername %>/<%= slugname %>
 [daviddm-image]: https://david-dm.org/<%= props.githubUsername %>/<%= slugname %>.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/<%= props.githubUsername %>/<%= slugname %>
+[coverall-image]: https://coveralls.io/repos/<%= props.githubUsername %>/<%= slugname %>/badge.svg
+[coverall-url]: https://coveralls.io/r/<%= props.githubUsername %>/<%= slugname %>

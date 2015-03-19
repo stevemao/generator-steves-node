@@ -14,16 +14,17 @@
   "main": "app",
   "repository": "stevemao/generator-steves-node",
   "scripts": {
+    "coverage": "istanbul cover _mocha -- -R spec --timeout 50000 && rm -rf ./coverage",
     "lint": "jshint app/index.js test --exclude node_modules",
     "style": "jscs app/index.js test",
     "test": "mocha --timeout 50000"
   },
   "dependencies": {
+    "istanbul": "^0.3.8",
     "npm-name": "^1.0.2",
     "yeoman-generator": "^0.18.3"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
     "jscs": "^1.11.3",
     "jshint": "^2.6.3",
     "mocha": "*",
