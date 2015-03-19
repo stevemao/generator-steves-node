@@ -1,4 +1,4 @@
-# Steves Node Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-steves-node.svg?branch=master)](https://travis-ci.org/yeoman/generator-steves-node)
+# Steves Node Generator [![Build Status](https://secure.travis-ci.org/stevemao/generator-steves-node.svg?branch=master)](https://travis-ci.org/stevemao/generator-steves-node)
 
 > Create a Node.js module
 
