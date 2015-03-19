@@ -4,9 +4,9 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var shelljs = require('shelljs');
 
-describe('steves node generator', function () {
-  beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
+describe('steves node generator', function() {
+  beforeEach(function(done) {
+    helpers.testDirectory(path.join(__dirname, 'temp'), function(err) {
       if (err) {
         done(err);
         return;
@@ -20,12 +20,13 @@ describe('steves node generator', function () {
     }.bind(this));
   });
 
-  it('creates expected files', function (done) {
+  it('creates expected files', function(done) {
     var expected = [
       'index.js',
       'cli.js',
       'test/test.js',
       '.gitignore',
+      '.jscsrc',
       '.jshintrc',
       '.travis.yml',
       '.editorconfig',
@@ -48,9 +49,11 @@ describe('steves node generator', function () {
       'browser': true
     });
 
-    shelljs.exec('npm install meow', {silent: true});
+    shelljs.exec('npm install meow', {
+      silent: true
+    });
 
-    this.app.run(function () {
+    this.app.run(function() {
       assert.file(expected);
       assert.fileContent('package.json', /"name": "mymodule"/);
       assert.deepEqual(require('./temp/cli.js'), {});
@@ -59,11 +62,12 @@ describe('steves node generator', function () {
 
   });
 
-  it('creates expected files without cli', function (done) {
+  it('creates expected files without cli', function(done) {
     var expected = [
       'index.js',
       'test/test.js',
       '.gitignore',
+      '.jscsrc',
       '.jshintrc',
       '.travis.yml',
       'package.json',
@@ -85,7 +89,7 @@ describe('steves node generator', function () {
       'browser': true
     });
 
-    this.app.run(function () {
+    this.app.run(function() {
       assert.file(expected);
       assert.fileContent('package.json', /"name": "mymodule"/);
       done();

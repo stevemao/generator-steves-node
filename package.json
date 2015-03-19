@@ -10,10 +10,12 @@
     "module",
     "cli"
   ],
-  "author": "Yeoman team",
+  "author": "Steve Mao",
   "main": "app",
   "repository": "stevemao/generator-steves-node",
   "scripts": {
+    "lint": "jshint app/index.js test --exclude node_modules",
+    "style": "jscs app/index.js test",
     "test": "mocha --timeout 50000"
   },
   "dependencies": {
@@ -22,6 +24,8 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5",
+    "jscs": "^1.11.3",
+    "jshint": "^2.6.3",
     "mocha": "*",
     "shelljs": "^0.3.0"
   },

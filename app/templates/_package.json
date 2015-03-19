@@ -23,12 +23,15 @@
   <% } %>},
   "devDependencies": {<% if (props.browser) { %>
     "browserify": "^9.0.3",<% } %>
-    "mocha": "*",
-    "jshint-stylish": "^1.0.1"
+    "jscs": "^1.11.3",
+    "jshint": "^2.6.3",
+    "mocha": "*"
   },
-  "scripts": {
-    "test": "mocha"<% if (props.browser) { %>,
-    "browser": "browserify index.js > browser.js"<% } %>
+  "scripts": {<% if (props.browser) { %>
+    "browser": "browserify index.js > browser.js",<% } %>
+    "lint": "jshint *.js test --exclude node_modules",
+    "style": "jscs *.js test",
+    "test": "mocha"
   }<% if (props.cli) { %>,
   "bin": {
     "<%= slugname %>": "cli.js"

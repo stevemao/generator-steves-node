@@ -4,14 +4,14 @@ var npmName = require('npm-name');
 var yeoman = require('yeoman-generator');
 
 module.exports = yeoman.generators.Base.extend({
-  init: function () {
+  init: function() {
     this.pkg = require('../package.json');
     this.log(
       this.yeoman +
       '\nThe name of your project shouldn\'t contain "node" or "js" and' +
       '\nshould be a unique ID not already in use at npmjs.org.');
   },
-  askForModuleName: function () {
+  askForModuleName: function() {
     var done = this.async();
 
     var prompts = [{
@@ -26,7 +26,7 @@ module.exports = yeoman.generators.Base.extend({
       when: function(answers) {
         var done = this.async();
 
-        npmName(answers.name, function (err, available) {
+        npmName(answers.name, function(err, available) {
           if (!available) {
             done(true);
             return;
@@ -37,13 +37,13 @@ module.exports = yeoman.generators.Base.extend({
       }
     }];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       if (props.pkgName) {
         return this.askForModuleName();
       }
 
       this.slugname = this._.slugify(props.name);
-      this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function (g) {
+      this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function(g) {
         return g[1].toUpperCase();
       });
 
@@ -51,7 +51,7 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  askFor: function () {
+  askFor: function() {
     var cb = this.async();
 
     var prompts = [{
@@ -96,14 +96,14 @@ module.exports = yeoman.generators.Base.extend({
 
     this.currentYear = (new Date()).getFullYear();
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       if (props.githubUsername) {
         this.repoUrl = props.githubUsername + '/' + this.slugname;
       } else {
         this.repoUrl = 'user/repo';
       }
 
-      this.keywords = props.keywords.split(',').map(function (el) {
+      this.keywords = props.keywords.split(',').map(function(el) {
         return el.trim();
       });
 
@@ -113,10 +113,10 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-
-  app: function () {
+  app: function() {
     this.config.save();
     this.copy('editorconfig', '.editorconfig');
+    this.copy('jscsrc', '.jscsrc');
     this.copy('jshintrc', '.jshintrc');
     this.copy('gitignore', '.gitignore');
     this.copy('gitattributes', '.gitattributes');
@@ -130,13 +130,13 @@ module.exports = yeoman.generators.Base.extend({
     }
   },
 
-  projectfiles: function () {
+  projectfiles: function() {
     this.template('index.js', 'index.js');
     this.mkdir('test');
     this.template('test/test.js', 'test/test.js');
   },
 
-  install: function () {
+  install: function() {
     this.installDependencies({
       bower: false,
       skipInstall: this.options['skip-install']
