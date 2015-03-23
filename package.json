@@ -15,9 +15,8 @@
   "repository": "stevemao/generator-steves-node",
   "scripts": {
     "coverage": "istanbul cover _mocha -- -R spec --timeout 50000 && rm -rf ./coverage",
-    "lint": "jshint app/index.js test --exclude node_modules",
-    "style": "jscs app/index.js test",
-    "test": "mocha --timeout 50000"
+    "lint": "jshint app/index.js test --exclude node_modules && jscs app/index.js test",
+    "test": "npm run-script lint && mocha --timeout 50000"
   },
   "dependencies": {
     "istanbul": "^0.3.8",

@@ -32,9 +32,8 @@
   "scripts": {<% if (props.browser) { %>
     "browser": "browserify index.js > browser.js",<% } %>
     "coverage": "istanbul cover _mocha -- -R spec && rm -rf ./coverage",
-    "lint": "jshint *.js test --exclude node_modules",
-    "style": "jscs *.js test",
-    "test": "mocha"
+    "lint": "jshint *.js test --exclude node_modules && jscs *.js test",
+    "test": "npm run-script lint && mocha"
   }<% if (props.cli) { %>,
   "bin": {
     "<%= slugname %>": "cli.js"
