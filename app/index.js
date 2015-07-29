@@ -2,6 +2,8 @@
 var path = require('path');
 var npmName = require('npm-name');
 var yeoman = require('yeoman-generator');
+var _s = require('underscore.string');
+var mkdirp = require('mkdirp');
 
 module.exports = yeoman.generators.Base.extend({
   init: function() {
@@ -42,7 +44,7 @@ module.exports = yeoman.generators.Base.extend({
         return this.askForModuleName();
       }
 
-      this.slugname = this._.slugify(props.name);
+      this.slugname = _s.slugify(props.name);
       this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function(g) {
         return g[1].toUpperCase();
       });
@@ -132,7 +134,7 @@ module.exports = yeoman.generators.Base.extend({
 
   projectfiles: function() {
     this.template('index.js', 'index.js');
-    this.mkdir('test');
+    mkdirp('test');
     this.template('test/test.js', 'test/test.js');
   },
 

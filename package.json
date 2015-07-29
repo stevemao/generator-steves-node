@@ -19,15 +19,17 @@
     "test": "npm run-script lint && mocha --timeout 50000"
   },
   "dependencies": {
-    "istanbul": "^0.3.8",
-    "npm-name": "^1.0.2",
-    "yeoman-generator": "^0.18.3"
+    "istanbul": "^0.3.17",
+    "mkdirp": "^0.5.1",
+    "npm-name": "^1.1.1",
+    "underscore.string": "^3.1.1",
+    "yeoman-generator": "^0.20.2"
   },
   "devDependencies": {
-    "jscs": "^1.11.3",
-    "jshint": "^2.6.3",
+    "jscs": "^2.0.0",
+    "jshint": "^2.8.0",
     "mocha": "*",
-    "shelljs": "^0.3.0"
+    "shelljs": "^0.5.1"
   },
   "engines": {
     "node": ">=0.10.0",
