@@ -10,7 +10,7 @@ var cli = meow({
     '',
     'Example',
     '  <%= slugname %> Unicorn'
-  ].join('\n')
+  ]
 });
 
 <%= safeSlugname %>(cli.input[0]);
